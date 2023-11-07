@@ -17,3 +17,19 @@ PROCEDURE:
  
  *Import Socket Library  
 	To use a socket object in your program, start off by importing the socket library. No need to install it with a package manager, it comes out of the box with Python.  
+
+To establish a connection between client and server, we need to create socket objects. In Python, we can do this using the socket module.
+
+# Create a socket object for the client
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+2. Opening and Closing Connections
+Once we have initialized socket objects, we can proceed to open a connection, send and receive data, and finally, close the connection.
+
+# Connect to a specified IP and port
+client_socket.connect(('0.0.0.0', 8080))
+
+# Sending data (this method can be called multiple times)
+client_socket.sendall(b'Hello, server!')
+
+# Close the socket connection to stop data transmission
+client_socket.close()
